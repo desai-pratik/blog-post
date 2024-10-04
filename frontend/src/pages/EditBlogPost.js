@@ -15,7 +15,7 @@ const EditBlogPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/blog/post/${id}`);
+        const response = await axios.get(`https://blog-post-hseq.onrender.com/api/v1/blog/post/${id}`);
         const post = response.data.blog;
         console.log(post);
         
@@ -41,7 +41,7 @@ const EditBlogPost = () => {
         heading,
         content: content.toString("html"),
       };
-      await axios.put(`http://localhost:5000/api/v1/blog/post/${id}`, updatedPost);
+      await axios.put(`https://blog-post-hseq.onrender.com/api/v1/blog/post/${id}`, updatedPost);
       toast.success("Blog post updated successfully!");
       navigate(`/post/${id}`); 
     } catch (err) {

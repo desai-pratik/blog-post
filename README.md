@@ -92,4 +92,4 @@ npm start
 cd backend
 npm run dev
 ```
-#### Access the Application: The app will be available at http://localhost:3000/ for the frontend and http://localhost:5000/api/v1/blog for the backend.Project Overview
+#### Access the Application: The app will be available at http://localhost:3000/ for the frontend and https://blog-post-hseq.onrender.com/api/v1/blog for the backend.Project Overview

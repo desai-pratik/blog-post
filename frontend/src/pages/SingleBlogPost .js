@@ -11,7 +11,7 @@ const SingleBlogPost = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/blog/post/${id}`);
+        const response = await axios.get(`https://blog-post-hseq.onrender.com/api/v1/blog/post/${id}`);
         setBlog(response.data.blog);
       } catch (err) {
         setError("Error fetching blog post");

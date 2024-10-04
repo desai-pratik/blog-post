@@ -24,7 +24,7 @@ const BlogPost = ({ blog }) => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this blog post?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/v1/blog/post/${blog._id}`);
+        await axios.delete(`https://blog-post-hseq.onrender.com/api/v1/blog/post/${blog._id}`);
         toast.success("Blog post deleted successfully!");
         navigate("/");
       } catch (error) {

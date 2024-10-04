@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/blog/posts");
+        const response = await axios.get("https://blog-post-hseq.onrender.com/api/v1/blog/posts");
         setBlogs(response.data.blogs);
       } catch (err) {
         setError("Error fetching blog posts");

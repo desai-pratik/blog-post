@@ -17,7 +17,7 @@ const RichTextEditorComponent = ({ addPost }) => {
       content: content,
     };
     try {
-      const response = await axios.post("http://localhost:5000/api/v1/blog/post", postData);
+      const response = await axios.post("https://blog-post-hseq.onrender.com/api/v1/blog/post", postData);
       addPost(response.data.content);
       setValue(RichTextEditor.createEmptyValue());
       setHeading("");
