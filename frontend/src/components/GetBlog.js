@@ -3,36 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BlogPost from "./BlogPost";
 
-const GetBlog = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/api/v1/blog/posts");
-        setBlogs(response.data.blogs);
-      } catch (err) {
-        setError("Error fetching blog posts");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  
-
-  if (loading) {
-    return <div className="text-center">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="text-red-500">{error}</div>;
-  }
+const GetBlog = ({blogs}) => {
 
   return (
     <div className="max-w-[1200px] mx-auto p-6">

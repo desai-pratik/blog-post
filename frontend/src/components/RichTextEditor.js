@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import RichTextEditor from "react-rte";
 
-const RichTextEditorComponent = () => {
+const RichTextEditorComponent = ({ addPost }) => {
   const [value, setValue] = useState(RichTextEditor.createEmptyValue());
   const [heading, setHeading] = useState("");
 
@@ -12,24 +12,25 @@ const RichTextEditorComponent = () => {
 
   const blogPost = async () => {
     const content = value.toString("html");
-
     const postData = {
       heading: heading,
       content: content,
     };
-
     try {
       const response = await axios.post("http://localhost:5000/api/v1/blog/post", postData);
-      console.log("Blog posted successfully:", response.data);
+      addPost(response.data.content);
+      setValue(RichTextEditor.createEmptyValue());
+      setHeading("");
     } catch (error) {
       console.error("Error posting the blog:", error);
     }
   };
 
-  console.log(value.toString("html"));
+  // console.log(value.toString("html"));
 
   return (
-    <div className="max-w-[1200px] mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-[1200px] mx-auto mt-4 border p-6 bg-white rounded-lg shadow-md">
+      <h5 className="h5">Create Blog</h5>
       <input
         type="text"
         placeholder="Enter heading..."
